@@ -1,11 +1,12 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
+using SampleAgentProgramming.Models;
 
 namespace SampleAgentProgramming.Pages
 {
     public class UserModel : PageModel
     {
-        public List<User> Users { get; set; }
+        public List<User> Users { get; set; } = new();
         public void OnGet()
         {
             Users = new List<User>
@@ -15,13 +16,5 @@ namespace SampleAgentProgramming.Pages
                 new User { Id = 3, Name = "鈴木 次郎", Company = "デモ合同会社", Email = "jiro.suzuki@example.com" }
             };
         }
-    }
-    public class User
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Company { get; set; }
-        public string Email { get; set; }
-        public string MaskedEmail => Email != null && Email.Contains("@") ? Email.Substring(0, 2) + "***" + Email.Substring(Email.IndexOf("@")) : Email;
     }
 }

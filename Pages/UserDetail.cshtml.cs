@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SampleAgentProgramming.Models;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,7 +8,7 @@ namespace SampleAgentProgramming.Pages
 {
     public class UserDetailModel : PageModel
     {
-        public User User { get; set; }
+        public new User? User { get; set; }
         public void OnGet(int id)
         {
             var users = new List<User>
@@ -18,12 +19,5 @@ namespace SampleAgentProgramming.Pages
             };
             User = users.FirstOrDefault(u => u.Id == id);
         }
-    }
-    public class User
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Company { get; set; }
-        public string Email { get; set; }
     }
 }
