@@ -1,0 +1,26 @@
+@page "/User"
+@model SampleAgentProgramming.Pages.UserModel
+@{
+    ViewData["Title"] = "利用者一覧";
+}
+<h1>利用者一覧</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>名前</th>
+            <th>所属会社</th>
+            <th>メールアドレス</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var user in Model.Users)
+    {
+        <tr>
+            <td><a asp-page="/UserDetail" asp-route-id="@user.Id">@user.Name</a></td>
+            <td>@user.Company</td>
+            <td>@user.MaskedEmail</td>
+        </tr>
+    }
+    </tbody>
+</table>
+<a asp-page="/Index" class="btn btn-secondary">トップへ戻る</a>
