@@ -1,0 +1,45 @@
+@page
+@model FamilyDetailModel
+@{
+    ViewData["Title"] = "家族詳細 - " + Model.FamilyMember?.Name;
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>家族詳細</h1>
+        
+        <div class="mb-3">
+            <a asp-area="" asp-page="/Family" class="btn btn-secondary">家族一覧に戻る</a>
+        </div>
+
+        @if (Model.FamilyMember != null)
+        {
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="bg-light">名前</th>
+                                <td>@Model.FamilyMember.Name</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="bg-light">続柄</th>
+                                <td>@Model.FamilyMember.Relationship</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="bg-light">メールアドレス</th>
+                                <td>@Model.FamilyMember.Email</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-warning">
+                指定された家族メンバーが見つかりませんでした。
+            </div>
+        }
+    </div>
+</div>
