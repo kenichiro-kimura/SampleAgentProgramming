@@ -1,0 +1,39 @@
+@page
+@model AdminModel
+@{
+    ViewData["Title"] = "管理者一覧";
+}
+
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
+    
+    <div class="row mb-3">
+        <div class="col">
+            <a class="btn btn-secondary" asp-page="/Index">Indexに戻る</a>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>名前</th>
+                    <th>メールアドレス</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var admin in Model.Administrators)
+                {
+                    <tr>
+                        <td>
+                            <a asp-page="/AdminDetail" asp-route-id="@admin.Id" class="text-decoration-none">
+                                @admin.Name
+                            </a>
+                        </td>
+                        <td>@admin.MaskedEmail</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

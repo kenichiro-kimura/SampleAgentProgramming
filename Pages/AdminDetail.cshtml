@@ -1,0 +1,56 @@
+@page
+@model AdminDetailModel
+@{
+    ViewData["Title"] = "管理者詳細";
+}
+
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
+    
+    <div class="row mb-3">
+        <div class="col">
+            <a class="btn btn-secondary" asp-page="/Admin">一覧に戻る</a>
+        </div>
+    </div>
+
+    @if (Model.Administrator != null)
+    {
+        <div class="card">
+            <div class="card-header">
+                <h3>@Model.Administrator.Name</h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="col-3">ID</th>
+                            <td>@Model.Administrator.Id</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">名前</th>
+                            <td>@Model.Administrator.Name</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">メールアドレス</th>
+                            <td>@Model.Administrator.Email</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">役職</th>
+                            <td>@Model.Administrator.Position</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">部署</th>
+                            <td>@Model.Administrator.Department</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning" role="alert">
+            指定された管理者が見つかりません。
+        </div>
+    }
+</div>
