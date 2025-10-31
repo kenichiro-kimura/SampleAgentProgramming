@@ -1,6 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
 namespace SampleAgentProgramming.Pages;
 
 public class IndexModel : PageModel
