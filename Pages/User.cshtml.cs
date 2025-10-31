@@ -1,7 +1,3 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Collections.Generic;
-using SampleAgentProgramming.Models;
-
 namespace SampleAgentProgramming.Pages
 {
     public class UserModel : PageModel
